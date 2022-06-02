@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { setTheme } from "../store/theme/theme-actions";
+import { clearControls } from "../store/controls/controls-actions";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoMoon, IoMoonOutline } from "react-icons/io5";
@@ -46,11 +47,13 @@ export const Header = () => {
   const toggleTheme = (state) =>
     dispatch(setTheme(theme === "light" ? "dark" : "light"));
 
+  const clearApp = () => dispatch(clearControls());
+
   return (
     <HeaderEl>
       <Container>
         <Wrapper>
-          <Title>Where is the world?</Title>
+          <Title onClick={clearApp}>Where is the world?</Title>
           <ModeSwitcher onClick={toggleTheme}>
             {theme === "light" ? (
               <IoMoonOutline size="14px" />
