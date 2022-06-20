@@ -1,12 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  search: "",
-  region: "",
+  search: '',
+  region: '',
 };
 
 const controlsSlice = createSlice({
-  name: "@@controls",
+  name: '@@controls',
   initialState,
   reducers: {
     setSearch: (state, action) => {
@@ -16,10 +16,10 @@ const controlsSlice = createSlice({
       state.region = action.payload;
     },
     clearControls: () => initialState,
-  },
+  }
 });
 
-export const { setRegion, setSearch, clearControls } = controlsSlice.actions;
+export const {setRegion, setSearch, clearControls} = controlsSlice.actions;
 export const controlsReducer = controlsSlice.reducer;
 
 export const selectSearch = (state) => state.controls.search;
